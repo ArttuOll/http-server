@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-server", "http-server\http-server.csproj", "{8417212A-EA1A-4A8B-8208-AFF82B9AF462}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "http-server-test", "http-server-test\http-server-test.csproj", "{087D7833-B61A-4712-B0DD-F609672A5CCD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{8417212A-EA1A-4A8B-8208-AFF82B9AF462}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8417212A-EA1A-4A8B-8208-AFF82B9AF462}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8417212A-EA1A-4A8B-8208-AFF82B9AF462}.Release|Any CPU.Build.0 = Release|Any CPU
+		{087D7833-B61A-4712-B0DD-F609672A5CCD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{087D7833-B61A-4712-B0DD-F609672A5CCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{087D7833-B61A-4712-B0DD-F609672A5CCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{087D7833-B61A-4712-B0DD-F609672A5CCD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
