@@ -10,7 +10,7 @@ public static class HttpRequestParser
         {
             var requestLine = headerSection[0].Split(' ');
             var method = ParseMethod(requestLine[0]);
-            var uri = ParseUri(requestLine[1]);
+            var requestTarget = requestLine[1];
             var version = ParseVersion(requestLine[2]);
             var headers = ParseHeaders(
                 headerSection.GetRange(1, headerSection.Count - 1)
@@ -30,12 +30,7 @@ public static class HttpRequestParser
         return new HttpMethod(method);
     }
 
-    private static Uri ParseUri(string uri)
-    {
-        return new Uri(uri);
-    }
-
-    private static string ParseVersion(string version)
+    public static string ParseVersion(string version)
     {
         return version switch
         {

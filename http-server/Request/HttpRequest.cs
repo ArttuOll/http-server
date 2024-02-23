@@ -1,10 +1,10 @@
 ﻿namespace http_server.Request;
 
-public class HttpRequest(HttpMethod method, Uri uri, string version, Dictionary<string, string> headers)
+public class HttpRequest(HttpMethod method, string uri, string version, Dictionary<string, string> headers)
 {
     public HttpMethod Method { get; } = method;
 
-    public Uri Uri { get; } = uri;
+    public string Uri { get; } = uri;
 
     public string Version { get; } = version;
 
