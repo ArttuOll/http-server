@@ -1,5 +1,6 @@
 using System.Net;
 using http_server.Request;
+using HttpMethod = http_server.Request.HttpMethod;
 
 namespace http_server_test.Request;
 
@@ -36,10 +37,10 @@ public class HttpRequestParserTests
         var parsedPut = HttpRequestParser.ParseMethod("PUT");
         var parsedDelete = HttpRequestParser.ParseMethod("DELETE");
 
-        Assert.Equal(HttpMethod.Get, parsedGet);
-        Assert.Equal(HttpMethod.Post, parsedPost);
-        Assert.Equal(HttpMethod.Put, parsedPut);
-        Assert.Equal(HttpMethod.Delete, parsedDelete);
+        Assert.Equal("GET", parsedGet);
+        Assert.Equal("POST", parsedPost);
+        Assert.Equal("PUT", parsedPut);
+        Assert.Equal("DELETE", parsedDelete);
     }
 
     [Fact]

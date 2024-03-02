@@ -1,8 +1,8 @@
 ﻿namespace http_server.Request;
 
-public class HttpRequest(HttpMethod method, string uri, string version, Dictionary<string, string> headers)
+public class HttpRequest(string method, string uri, string version, Dictionary<string, string> headers)
 {
-    public HttpMethod Method { get; } = method;
+    public string Method { get; } = method;
 
     public string Uri { get; } = uri;
 

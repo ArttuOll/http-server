@@ -28,9 +28,21 @@ public static class HttpRequestParser
 
     }
 
-    public static HttpMethod ParseMethod(string method)
+    public static string ParseMethod(string method)
     {
-        return new HttpMethod(method);
+        return method switch
+        {
+            "GET" => HttpMethod.Get,
+            "HEAD" => HttpMethod.Head,
+            "POST" => HttpMethod.Post,
+            "PUT" => HttpMethod.Put,
+            "DELETE" => HttpMethod.Delete,
+            "CONNECT" => HttpMethod.Connect,
+            "OPTIONS" => HttpMethod.Options,
+            "TRACE" => HttpMethod.Trace,
+            "PATCH" => HttpMethod.Patch,
+            _ => throw new HttpRequestException(400, "Invalid method.")
+        };
     }
 
     public static string ParseVersion(string version)
