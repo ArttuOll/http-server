@@ -8,5 +8,18 @@ public class HttpRequest(string method, string uri, string version, Dictionary<s
 
     public string Version { get; } = version;
 
-    public Dictionary<string, string> Headers { get; } = headers;
+    private Dictionary<string, string> Headers { get; } = headers;
+
+    public string GetHeaderValue(string headerName)
+    {
+        try
+        {
+            return Headers[headerName];
+        }
+        catch (KeyNotFoundException error)
+        {
+            Console.WriteLine(error);
+            throw new HttpRequestException(400, $"Necessary header '{headerName}' was not found in the request.");
+        }
+    }
 }
