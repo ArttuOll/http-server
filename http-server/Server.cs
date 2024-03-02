@@ -7,9 +7,8 @@ namespace http_server;
 
 public class Server(IPAddress address, int port)
 {
-    private IPEndPoint IpEndpoint { get; } = new(address, port);
-
     private readonly TcpListener _listener = new(address, port);
+    private IPEndPoint IpEndpoint { get; } = new(address, port);
 
     public async Task Start()
     {
@@ -52,16 +51,13 @@ public class Server(IPAddress address, int port)
 
     private static async Task<List<string>> ReadHeader(TextReader streamReader)
     {
-            var lines = new List<string>();
-            var line = await streamReader.ReadLineAsync();
-            while (!string.IsNullOrEmpty(line))
-            {
-                lines.Add(line);
-            }
+        var lines = new List<string>();
+        var line = await streamReader.ReadLineAsync();
+        while (!string.IsNullOrEmpty(line)) lines.Add(line);
 
-            return lines;
+        return lines;
     }
-    
+
     private void Stop()
     {
         _listener.Stop();

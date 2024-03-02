@@ -25,7 +25,6 @@ public static class HttpRequestParser
         {
             throw new HttpRequestException(400, "Error parsing the header section of the request.", innerException);
         }
-
     }
 
     public static string ParseMethod(string method)
@@ -59,6 +58,7 @@ public static class HttpRequestParser
 
     public static Dictionary<string, string> ParseHeaders(IEnumerable<string> headers)
     {
-        return headers.Select(header => header.Split(": ")).ToDictionary(headerParts => headerParts[0], headerParts => headerParts[1]);
+        return headers.Select(header => header.Split(": "))
+            .ToDictionary(headerParts => headerParts[0], headerParts => headerParts[1]);
     }
 }

@@ -48,7 +48,7 @@ public class HttpRequestParserTests
     {
         var headerSection = new List<string>
         {
-            "GET / HTTP/1.1",
+            "GET / HTTP/1.1"
         };
 
         var parsedHeaderSection = HttpRequestParser.ParseHeaderSection(headerSection);
