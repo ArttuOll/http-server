@@ -1,20 +1,13 @@
 ﻿using System.Net;
-using System.Net.Http.Headers;
+using http_server.Body;
 
 namespace http_server.Response;
 
-public class HttpResponse
+public class HttpResponse(HttpStatusCode statusCode, Dictionary<string, string> headers, IBodyReader? body)
 {
-    public HttpStatusCode StatusCode { get; }
+    public HttpStatusCode StatusCode { get; init; } = statusCode;
 
-    public HttpHeaders Headers { get; }
+    public Dictionary<string, string> Headers { get; init; } = headers;
 
-    public IBodyReader body { get; }
-}
-
-public interface IBodyReader
-{
-    public int Length { get; }
-
-    public Task<byte[]> Read();
+    public IBodyReader? Body { get; init; } = body;
 }
