@@ -3,6 +3,7 @@ using System.Net.Sockets;
 using System.Text;
 using http_server.Body;
 using http_server.Request;
+using http_server.Response;
 
 namespace http_server;
 
@@ -42,12 +43,12 @@ public class Server(IPAddress address, int port)
             var request = HttpRequestParser.ParseHeaderSection(headerSection);
             var body = new BodyReader(stream, request);
 
-            // var responseMessage = $"Echo: {received}\n";
+            var requestHandler = new HttpRequestHandler(request, body);
+            var response = requestHandler.Handle();
+            var responseWriter = new HttpResponseWriter(stream, response);
+            await responseWriter.Write();
 
-            // await streamWriter.WriteAsync(responseMessage);
-            // await streamWriter.FlushAsync();
-
-            // Console.WriteLine($"Sent message: {responseMessage}\n");
+            if (request.Version == "HTTP/1.0") return;
         }
     }
 
