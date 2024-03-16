@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using http_server.Body;
 using http_server.Request;
 
 namespace http_server;
@@ -39,6 +40,7 @@ public class Server(IPAddress address, int port)
         {
             var headerSection = await ReadHeader(streamReader);
             var request = HttpRequestParser.ParseHeaderSection(headerSection);
+            var body = new BodyReader(stream, request);
 
             // var responseMessage = $"Echo: {received}\n";
 
